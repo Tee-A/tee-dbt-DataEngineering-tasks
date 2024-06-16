@@ -1,3 +1,4 @@
+#Importing Required libraries and Packages
 import requests
 import time
 import random
@@ -17,7 +18,7 @@ from pathlib import Path
 
  
 
-
+# Loading .env File and base url
 load_dotenv(Path("/opt/airflow/config/.env"))
 base_url = "https://api.nytimes.com/svc/books/v3/lists/overview.json"
 
@@ -25,7 +26,7 @@ results = {'published_date': [], 'list_id': [], 'list_name': [], 'display_name':
           'contributor': [], 'contributor_note': [], 'created_date': [], 'description': [], 'price': [], 'primary_isbn10': [], 
            'primary_isbn13': [], 'publisher': [], 'rank': [], 'title': [], 'updated_date': [], 'weeks_on_list': []}
 
-     
+# Function to fetch data from API     
 def fetch_nyt_data(published_date):
     API_KEY = os.getenv('API_KEY')
     r = requests.get(f'{base_url}?published_date={published_date}&api-key={API_KEY}')
@@ -33,7 +34,7 @@ def fetch_nyt_data(published_date):
 
     return data_fetched
 
-
+# Function to fetch data for a date range from API
 def fetch_nyt_rangeData(start_date, end_date):
     start_date = os.getenv('start_date')
     end_date = os.getenv('end_date')
@@ -76,15 +77,14 @@ def fetch_nyt_rangeData(start_date, end_date):
             #engine = create_engine('postgresql://postgres:postgres@host.docker.internal:5433/postgres')
             #result_df.to_sql('nyt_books', engine, schema='public', index=False, if_exists='append')
              
-             
+            
     result_df = pd.DataFrame(results)
-
-    engine = create_engine('postgresql://postgres:postgres@localhost:5433/postgres') 
+    engine = create_engine('postgresql://postgres:postgres@host.docker.internal:5433/postgres') 
 
     result_df.to_sql('nyt_books', engine, schema='public', index=False, if_exists='replace')
 
 
-
+# Building DAGs
 with DAG('nyt_books_loader', start_date=datetime(2024,6,14), schedule_interval='@weekly',
          catchup=False) as dag:
 
