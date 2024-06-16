@@ -1,0 +1,29 @@
+version: 2
+
+sources:
+  - name: nyt_books
+    description: "This is the database for the Newyork Times books tables in Postgres database"
+    database: postgres
+    schema: public
+    tables:
+      - name: nyt_books
+        description: ""
+        columns:
+          - name: list_id
+            tests:
+              - not_null
+          - name: primary_isbn13
+            tests:
+              - not_null
+          - name: rank
+            tests:
+              - not_null
+          - name: author
+            tests:
+              - not_null
+          - name: created_date
+            tests:
+              - not_null
+          - name: title
+            tests:
+              - not_null

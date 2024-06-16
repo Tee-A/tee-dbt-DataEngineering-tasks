@@ -1,0 +1,52 @@
+[2024-06-16T06:26:48.807+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dbt_deel_task.stg_dates_run manual__2024-06-16T06:26:27.700509+00:00 [queued]>
+[2024-06-16T06:26:48.887+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dbt_deel_task.stg_dates_run manual__2024-06-16T06:26:27.700509+00:00 [queued]>
+[2024-06-16T06:26:48.892+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 3
+[2024-06-16T06:26:48.926+0000] {taskinstance.py:2217} INFO - Executing <Task(DbtRunLocalOperator): stg_dates_run> on 2024-06-16 06:26:27.700509+00:00
+[2024-06-16T06:26:48.990+0000] {standard_task_runner.py:60} INFO - Started process 2340 to run task
+[2024-06-16T06:26:49.005+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'dbt_deel_task', 'stg_dates_run', 'manual__2024-06-16T06:26:27.700509+00:00', '--job-id', '21', '--raw', '--subdir', 'DAGS_FOLDER/dbt_deel_task.py', '--cfg-path', '/tmp/tmpa0azw4fq']
+[2024-06-16T06:26:49.010+0000] {standard_task_runner.py:88} INFO - Job 21: Subtask stg_dates_run
+[2024-06-16T06:26:49.152+0000] {task_command.py:423} INFO - Running <TaskInstance: dbt_deel_task.stg_dates_run manual__2024-06-16T06:26:27.700509+00:00 [running]> on host bb887be24792
+[2024-06-16T06:26:49.355+0000] {taskinstance.py:2513} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='dbt_deel_task' AIRFLOW_CTX_TASK_ID='stg_dates_run' AIRFLOW_CTX_EXECUTION_DATE='2024-06-16T06:26:27.700509+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-06-16T06:26:27.700509+00:00'
+[2024-06-16T06:26:53.574+0000] {log.py:232} WARNING - [[34m2024-06-16T06:26:53.572+0000[0m] {[34mlocal.py:[0m177} INFO[0m - [35m(astronomer-cosmos)[0m - dbtRunner is available. Using dbtRunner for invoking dbt.[0m
+[2024-06-16T06:26:53.572+0000] {local.py:177} INFO - dbtRunner is available. Using dbtRunner for invoking dbt.
+[2024-06-16T06:26:53.582+0000] {log.py:232} WARNING - [[34m2024-06-16T06:26:53.581+0000[0m] {[34mlocal.py:[0m292} INFO[0m - [35m(astronomer-cosmos)[0m - Cloning project to writable temp directory /tmp/tmpdjlp9ffr from /opt/***/dbt/dbt_deel_task[0m
+[2024-06-16T06:26:53.581+0000] {local.py:292} INFO - Cloning project to writable temp directory /tmp/tmpdjlp9ffr from /opt/airflow/dbt/dbt_deel_task
+[2024-06-16T06:26:53.591+0000] {log.py:232} WARNING - [[34m2024-06-16T06:26:53.590+0000[0m] {[34mlocal.py:[0m303} INFO[0m - [35m(astronomer-cosmos)[0m - Partial parse is enabled and the latest partial parse file is /tmp/cosmos/dbt_deel_task/target/partial_parse.msgpack[0m
+[2024-06-16T06:26:53.590+0000] {local.py:303} INFO - Partial parse is enabled and the latest partial parse file is /tmp/cosmos/dbt_deel_task/target/partial_parse.msgpack
+[2024-06-16T06:26:53.777+0000] {taskinstance.py:2731} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 444, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 414, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/cosmos/operators/base.py", line 264, in execute
+    self.build_and_run_cmd(context=context, cmd_flags=self.add_cmd_flags())
+  File "/home/airflow/.local/lib/python3.10/site-packages/cosmos/operators/local.py", line 489, in build_and_run_cmd
+    result = self.run_command(cmd=dbt_cmd, env=env, context=context)
+  File "/home/airflow/.local/lib/python3.10/site-packages/cosmos/operators/local.py", line 307, in run_command
+    with self.profile_config.ensure_profile() as profile_values:
+  File "/usr/local/lib/python3.10/contextlib.py", line 135, in __enter__
+    return next(self.gen)
+  File "/home/airflow/.local/lib/python3.10/site-packages/cosmos/config.py", line 270, in ensure_profile
+    profile_contents = self.profile_mapping.get_profile_file_contents(
+  File "/home/airflow/.local/lib/python3.10/site-packages/cosmos/profiles/base.py", line 224, in get_profile_file_contents
+    profile_vars = self.profile
+  File "/home/airflow/.local/lib/python3.10/site-packages/cosmos/profiles/postgres/user_pass.py", line 43, in profile
+    **self.mapped_params,
+  File "/home/airflow/.local/lib/python3.10/site-packages/cosmos/profiles/base.py", line 299, in mapped_params
+    mapped_params[dbt_field] = self.get_dbt_value(dbt_field)
+  File "/home/airflow/.local/lib/python3.10/site-packages/cosmos/profiles/base.py", line 276, in get_dbt_value
+    value = self._get_airflow_conn_field(airflow_field)
+  File "/home/airflow/.local/lib/python3.10/site-packages/cosmos/profiles/base.py", line 253, in _get_airflow_conn_field
+    value = getattr(self.conn, airflow_field, None)
+  File "/home/airflow/.local/lib/python3.10/site-packages/cosmos/profiles/base.py", line 127, in conn
+    conn = BaseHook.get_connection(self.conn_id)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/hooks/base.py", line 82, in get_connection
+    conn = Connection.get_connection_from_secrets(conn_id)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/connection.py", line 514, in get_connection_from_secrets
+    raise AirflowNotFoundException(f"The conn_id `{conn_id}` isn't defined")
+airflow.exceptions.AirflowNotFoundException: The conn_id `postgres` isn't defined
+[2024-06-16T06:26:53.789+0000] {taskinstance.py:1149} INFO - Marking task as UP_FOR_RETRY. dag_id=dbt_deel_task, task_id=stg_dates_run, execution_date=20240616T062627, start_date=20240616T062648, end_date=20240616T062653
+[2024-06-16T06:26:53.812+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 21 for task stg_dates_run (The conn_id `postgres` isn't defined; 2340)
+[2024-06-16T06:26:53.913+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-06-16T06:26:54.057+0000] {taskinstance.py:3312} INFO - 0 downstream tasks scheduled from follow-on schedule check

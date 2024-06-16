@@ -1,0 +1,43 @@
+models:
+    - name: dim_book_authors
+      columns:
+        - name: book_key
+          tests:
+            - unique
+            - not_null
+    - name: dim_book_lists
+      columns:
+        - name: list_key
+          tests:
+            - unique
+            - not_null
+    - name: dim_dates
+      columns:
+        - name: date_key
+          tests:
+            - unique
+            - not_null
+    - name: fact_book_details
+      columns:
+        - name: fact_key
+          tests:
+            - unique
+            - not_null
+        - name: list_key
+          tests:
+            - not_null
+            - relationships:
+                to: ref('dim_book_lists')
+                field: list_key
+        - name: book_key
+          tests:
+            - not_null
+            - relationships:
+                to: ref('dim_book_authors')
+                field: book_key
+        - name: published_date_key
+          tests:
+            - not_null
+            - relationships:
+                to: ref('dim_dates')
+                field: date_key

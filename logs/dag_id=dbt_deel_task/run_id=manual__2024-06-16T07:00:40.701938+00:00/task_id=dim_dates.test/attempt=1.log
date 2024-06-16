@@ -1,0 +1,149 @@
+[2024-06-16T07:17:43.721+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dbt_deel_task.dim_dates.test manual__2024-06-16T07:00:40.701938+00:00 [queued]>
+[2024-06-16T07:17:43.732+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dbt_deel_task.dim_dates.test manual__2024-06-16T07:00:40.701938+00:00 [queued]>
+[2024-06-16T07:17:43.733+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 3
+[2024-06-16T07:17:43.746+0000] {taskinstance.py:2217} INFO - Executing <Task(DbtTestLocalOperator): dim_dates.test> on 2024-06-16 07:00:40.701938+00:00
+[2024-06-16T07:17:43.757+0000] {standard_task_runner.py:60} INFO - Started process 3892 to run task
+[2024-06-16T07:17:43.762+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'dbt_deel_task', 'dim_dates.test', 'manual__2024-06-16T07:00:40.701938+00:00', '--job-id', '63', '--raw', '--subdir', 'DAGS_FOLDER/dbt_deel_task.py', '--cfg-path', '/tmp/tmp35neanxp']
+[2024-06-16T07:17:43.767+0000] {standard_task_runner.py:88} INFO - Job 63: Subtask dim_dates.test
+[2024-06-16T07:17:43.837+0000] {task_command.py:423} INFO - Running <TaskInstance: dbt_deel_task.dim_dates.test manual__2024-06-16T07:00:40.701938+00:00 [running]> on host bb887be24792
+[2024-06-16T07:17:43.882+0000] {taskinstance.py:2513} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='dbt_deel_task' AIRFLOW_CTX_TASK_ID='dim_dates.test' AIRFLOW_CTX_EXECUTION_DATE='2024-06-16T07:00:40.701938+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-06-16T07:00:40.701938+00:00'
+[2024-06-16T07:17:45.520+0000] {log.py:232} WARNING - [[34m2024-06-16T07:17:45.519+0000[0m] {[34mlocal.py:[0m177} INFO[0m - [35m(astronomer-cosmos)[0m - dbtRunner is available. Using dbtRunner for invoking dbt.[0m
+[2024-06-16T07:17:45.519+0000] {local.py:177} INFO - dbtRunner is available. Using dbtRunner for invoking dbt.
+[2024-06-16T07:17:45.531+0000] {log.py:232} WARNING - [[34m2024-06-16T07:17:45.530+0000[0m] {[34mlocal.py:[0m292} INFO[0m - [35m(astronomer-cosmos)[0m - Cloning project to writable temp directory /tmp/tmprp7mendh from /opt/***/dbt/dbt_deel_task[0m
+[2024-06-16T07:17:45.530+0000] {local.py:292} INFO - Cloning project to writable temp directory /tmp/tmprp7mendh from /opt/airflow/dbt/dbt_deel_task
+[2024-06-16T07:17:45.583+0000] {log.py:232} WARNING - [[34m2024-06-16T07:17:45.535+0000[0m] {[34mlocal.py:[0m303} INFO[0m - [35m(astronomer-cosmos)[0m - Partial parse is enabled and the latest partial parse file is /tmp/cosmos/dbt_deel_task/target/partial_parse.msgpack[0m
+[2024-06-16T07:17:45.535+0000] {local.py:303} INFO - Partial parse is enabled and the latest partial parse file is /tmp/cosmos/dbt_deel_task/target/partial_parse.msgpack
+[2024-06-16T07:17:45.663+0000] {base.py:83} INFO - Using connection ID '***' for task execution.
+[2024-06-16T07:17:45.665+0000] {log.py:232} WARNING - [[34m2024-06-16T07:17:45.664+0000[0m] {[34mbase.py:[0m225} INFO[0m - [35m(astronomer-cosmos)[0m - Using real values for profile dbt_deel_task[0m
+[2024-06-16T07:17:45.664+0000] {base.py:225} INFO - Using real values for profile dbt_deel_task
+[2024-06-16T07:17:45.667+0000] {log.py:232} WARNING - [[34m2024-06-16T07:17:45.667+0000[0m] {[34mconfig.py:[0m291} INFO[0m - [35m(astronomer-cosmos)[0m - Creating temporary profiles.yml with use_mock_values=False at /tmp/tmp_fla89io/profiles.yml with the following contents:
+dbt_deel_task:
+    outputs:
+        dev:
+            dbname: ***
+            host: host.docker.internal
+            password: '{{ env_var(''COSMOS_CONN_POSTGRES_PASSWORD'') }}'
+            port: 5433
+            schema: public
+            type: ***
+            user: ***
+    target: dev
+[0m
+[2024-06-16T07:17:45.667+0000] {config.py:291} INFO - Creating temporary profiles.yml with use_mock_values=False at /tmp/tmp_fla89io/profiles.yml with the following contents:
+dbt_deel_task:
+    outputs:
+        dev:
+            dbname: ***
+            host: host.docker.internal
+            password: '{{ env_var(''COSMOS_CONN_POSTGRES_PASSWORD'') }}'
+            port: 5433
+            schema: public
+            type: ***
+            user: ***
+    target: dev
+
+[2024-06-16T07:17:45.668+0000] {log.py:232} WARNING - [[34m2024-06-16T07:17:45.668+0000[0m] {[34mlocal.py:[0m271} INFO[0m - [35m(astronomer-cosmos)[0m - Trying to run dbtRunner with:
+ ['test', '--models', 'dim_dates', '--project-dir', '/tmp/tmprp7mendh', '--profiles-dir', '/tmp/tmp_fla89io', '--profile', 'dbt_deel_task', '--target', 'dev']
+ in /tmp/tmprp7mendh[0m
+[2024-06-16T07:17:45.668+0000] {local.py:271} INFO - Trying to run dbtRunner with:
+ ['test', '--models', 'dim_dates', '--project-dir', '/tmp/tmprp7mendh', '--profiles-dir', '/tmp/tmp_fla89io', '--profile', 'dbt_deel_task', '--target', 'dev']
+ in /tmp/tmprp7mendh
+[2024-06-16T07:17:45.761+0000] {logging_mixin.py:188} INFO - 07:17:45  Running with dbt=1.8.2
+[2024-06-16T07:17:46.262+0000] {log.py:232} WARNING - [[34m2024-06-16T07:17:46.262+0000[0m] {[34mgraph.py:[0m242} INFO[0m - [35m(astronomer-cosmos)[0m - Trying to parse the dbt project in `/opt/***/dbt/dbt_deel_task` using dbt ls...[0m
+[2024-06-16T07:17:46.262+0000] {graph.py:242} INFO - Trying to parse the dbt project in `/opt/***/dbt/dbt_deel_task` using dbt ls...
+[2024-06-16T07:17:46.293+0000] {log.py:232} WARNING - [[34m2024-06-16T07:17:46.291+0000[0m] {[34mgraph.py:[0m252} INFO[0m - [35m(astronomer-cosmos)[0m - Content of the dbt project dir /opt/***/dbt/dbt_deel_task: `['dbt_packages', 'snapshots', 'package-lock.yml', 'packages.yml', 'tests', 'models', 'README.md', 'macros', 'logs', '.gitignore', 'seeds', 'analyses', 'dbt_project.yml']`[0m
+[2024-06-16T07:17:46.291+0000] {graph.py:252} INFO - Content of the dbt project dir /opt/***/dbt/dbt_deel_task: `['dbt_packages', 'snapshots', 'package-lock.yml', 'packages.yml', 'tests', 'models', 'README.md', 'macros', 'logs', '.gitignore', 'seeds', 'analyses', 'dbt_project.yml']`
+[2024-06-16T07:17:46.314+0000] {log.py:232} WARNING - [[34m2024-06-16T07:17:46.313+0000[0m] {[34mgraph.py:[0m262} INFO[0m - [35m(astronomer-cosmos)[0m - Partial parse is enabled and the latest partial parse file is /tmp/cosmos/dbt_deel_task/target/partial_parse.msgpack[0m
+[2024-06-16T07:17:46.313+0000] {graph.py:262} INFO - Partial parse is enabled and the latest partial parse file is /tmp/cosmos/dbt_deel_task/target/partial_parse.msgpack
+[2024-06-16T07:17:46.373+0000] {log.py:232} WARNING - [[34m2024-06-16T07:17:46.373+0000[0m] {[34mbase.py:[0m222} INFO[0m - [35m(astronomer-cosmos)[0m - Using mock values for profile dbt_deel_task[0m
+[2024-06-16T07:17:46.373+0000] {base.py:222} INFO - Using mock values for profile dbt_deel_task
+[2024-06-16T07:17:46.377+0000] {log.py:232} WARNING - [[34m2024-06-16T07:17:46.377+0000[0m] {[34mconfig.py:[0m291} INFO[0m - [35m(astronomer-cosmos)[0m - Creating temporary profiles.yml with use_mock_values=True at /tmp/tmpfsjjvd_j/profiles.yml with the following contents:
+dbt_deel_task:
+    outputs:
+        dev:
+            dbname: ***
+            host: mock_value
+            password: mock_value
+            port: 5432
+            schema: public
+            type: ***
+            user: mock_value
+    target: dev
+[0m
+[2024-06-16T07:17:46.377+0000] {config.py:291} INFO - Creating temporary profiles.yml with use_mock_values=True at /tmp/tmpfsjjvd_j/profiles.yml with the following contents:
+dbt_deel_task:
+    outputs:
+        dev:
+            dbname: ***
+            host: mock_value
+            password: mock_value
+            port: 5432
+            schema: public
+            type: ***
+            user: mock_value
+    target: dev
+
+[2024-06-16T07:17:46.379+0000] {log.py:232} WARNING - [[34m2024-06-16T07:17:46.379+0000[0m] {[34mgraph.py:[0m76} INFO[0m - [35m(astronomer-cosmos)[0m - Running command: `/home/***/.local/bin/dbt deps --project-dir /tmp/tmphw92rswx --profiles-dir /tmp/tmpfsjjvd_j --profile dbt_deel_task --target dev`[0m
+[2024-06-16T07:17:46.379+0000] {graph.py:76} INFO - Running command: `/home/***/.local/bin/dbt deps --project-dir /tmp/tmphw92rswx --profiles-dir /tmp/tmpfsjjvd_j --profile dbt_deel_task --target dev`
+[2024-06-16T07:17:50.574+0000] {log.py:232} WARNING - [[34m2024-06-16T07:17:50.557+0000[0m] {[34mgraph.py:[0m76} INFO[0m - [35m(astronomer-cosmos)[0m - Running command: `/home/***/.local/bin/dbt ls --output json --project-dir /tmp/tmphw92rswx --profiles-dir /tmp/tmpfsjjvd_j --profile dbt_deel_task --target dev`[0m
+[2024-06-16T07:17:50.557+0000] {graph.py:76} INFO - Running command: `/home/***/.local/bin/dbt ls --output json --project-dir /tmp/tmphw92rswx --profiles-dir /tmp/tmpfsjjvd_j --profile dbt_deel_task --target dev`
+[2024-06-16T07:17:52.905+0000] {log.py:232} WARNING - [[34m2024-06-16T07:17:52.900+0000[0m] {[34mgraph.py:[0m190} INFO[0m - [35m(astronomer-cosmos)[0m - Total nodes: 29[0m
+[2024-06-16T07:17:52.900+0000] {graph.py:190} INFO - Total nodes: 29
+[2024-06-16T07:17:52.906+0000] {log.py:232} WARNING - [[34m2024-06-16T07:17:52.906+0000[0m] {[34mgraph.py:[0m191} INFO[0m - [35m(astronomer-cosmos)[0m - Total filtered nodes: 29[0m
+[2024-06-16T07:17:52.906+0000] {graph.py:191} INFO - Total filtered nodes: 29
+[2024-06-16T07:17:52.918+0000] {log.py:232} WARNING - [[34m2024-06-16T07:17:52.918+0000[0m] {[34mgraph.py:[0m165} WARNING[0m - [35m(astronomer-cosmos)[0m - Unavailable conversion function for <DbtResourceType.SOURCE> (node <source.dbt_deel_task.nyt_books.nyt_books>). Define a converter function using render_config.node_converters.[0m
+[2024-06-16T07:17:52.918+0000] {graph.py:165} WARNING - Unavailable conversion function for <DbtResourceType.SOURCE> (node <source.dbt_deel_task.nyt_books.nyt_books>). Define a converter function using render_config.node_converters.
+[2024-06-16T07:17:52.996+0000] {logging_mixin.py:188} INFO - 07:17:52  Registered adapter: ***=1.8.1
+[2024-06-16T07:17:53.129+0000] {logging_mixin.py:188} INFO - 07:17:53  Unable to do partial parsing because profile has changed
+[2024-06-16T07:17:54.414+0000] {logging_mixin.py:188} INFO - 07:17:54  [WARNING]: Deprecated functionality
+The `tests` config has been renamed to `data_tests`. Please see
+https://docs.getdbt.com/docs/build/data-tests#new-data_tests-syntax for more
+information.
+[2024-06-16T07:17:55.278+0000] {logging_mixin.py:188} INFO - 07:17:55  Found 8 models, 20 data tests, 1 source, 660 macros
+[2024-06-16T07:17:55.281+0000] {logging_mixin.py:188} INFO - 07:17:55
+[2024-06-16T07:17:55.450+0000] {logging_mixin.py:188} INFO - 07:17:55  Concurrency: 1 threads (target='dev')
+[2024-06-16T07:17:55.451+0000] {logging_mixin.py:188} INFO - 07:17:55
+[2024-06-16T07:17:55.472+0000] {logging_mixin.py:188} INFO - 07:17:55  1 of 3 START test not_null_dim_dates_date_key .................................. [RUN]
+[2024-06-16T07:17:55.519+0000] {logging_mixin.py:188} INFO - 07:17:55  1 of 3 PASS not_null_dim_dates_date_key ........................................ [PASS in 0.05s]
+[2024-06-16T07:17:55.521+0000] {logging_mixin.py:188} INFO - 07:17:55  2 of 3 START test relationships_fact_book_details_published_date_key__date_key__ref_dim_dates_  [RUN]
+[2024-06-16T07:18:02.921+0000] {logging_mixin.py:188} INFO - 07:18:02  2 of 3 FAIL 855 relationships_fact_book_details_published_date_key__date_key__ref_dim_dates_  [FAIL 855 in 7.40s]
+[2024-06-16T07:18:02.928+0000] {logging_mixin.py:188} INFO - 07:18:02  3 of 3 START test unique_dim_dates_date_key .................................... [RUN]
+[2024-06-16T07:18:03.093+0000] {logging_mixin.py:188} INFO - 07:18:03  3 of 3 PASS unique_dim_dates_date_key .......................................... [PASS in 0.16s]
+[2024-06-16T07:18:03.369+0000] {logging_mixin.py:188} INFO - 07:18:03
+[2024-06-16T07:18:03.384+0000] {logging_mixin.py:188} INFO - 07:18:03  Finished running 3 data tests in 0 hours 0 minutes and 8.08 seconds (8.08s).
+[2024-06-16T07:18:03.614+0000] {logging_mixin.py:188} INFO - 07:18:03
+[2024-06-16T07:18:03.619+0000] {logging_mixin.py:188} INFO - 07:18:03  Completed with 1 error and 0 warnings:
+[2024-06-16T07:18:03.620+0000] {logging_mixin.py:188} INFO - 07:18:03
+[2024-06-16T07:18:03.624+0000] {logging_mixin.py:188} INFO - 07:18:03  Failure in test relationships_fact_book_details_published_date_key__date_key__ref_dim_dates_ (models/marts/_nyt_books_tests.yml)
+[2024-06-16T07:18:03.628+0000] {logging_mixin.py:188} INFO - 07:18:03    Got 855 results, configured to fail if != 0
+[2024-06-16T07:18:03.631+0000] {logging_mixin.py:188} INFO - 07:18:03
+[2024-06-16T07:18:03.634+0000] {logging_mixin.py:188} INFO - 07:18:03    compiled code at target/compiled/dbt_deel_task/models/marts/_nyt_books_tests.yml/relationships_fact_book_detail_cb3a0aa8b7aeca88b2c149feb041b8ef.sql
+[2024-06-16T07:18:03.637+0000] {logging_mixin.py:188} INFO - 07:18:03
+[2024-06-16T07:18:03.640+0000] {logging_mixin.py:188} INFO - 07:18:03  Done. PASS=2 WARN=0 ERROR=1 SKIP=0 TOTAL=3
+[2024-06-16T07:18:04.534+0000] {local.py:138} WARNING - Artifact schema version: https://schemas.getdbt.com/dbt/manifest/v12.json is above dbt-ol supported version 7. This might cause errors.
+[2024-06-16T07:18:04.538+0000] {local.py:138} WARNING - Artifact schema version: https://schemas.getdbt.com/dbt/run-results/v6.json is above dbt-ol supported version 5. This might cause errors.
+[2024-06-16T07:18:04.544+0000] {log.py:232} WARNING - [[34m2024-06-16T07:18:04.543+0000[0m] {[34mlocal.py:[0m349} INFO[0m - [35m(astronomer-cosmos)[0m - Inlets: [Dataset(uri='***://host.docker.internal:5433/***.marts.dim_dates', extra=None), Dataset(uri='***://host.docker.internal:5433/***.marts.fact_book_details', extra=None)][0m
+[2024-06-16T07:18:04.543+0000] {local.py:349} INFO - Inlets: [Dataset(uri='postgres://host.docker.internal:5433/postgres.marts.dim_dates', extra=None), Dataset(uri='postgres://host.docker.internal:5433/postgres.marts.fact_book_details', extra=None)]
+[2024-06-16T07:18:04.546+0000] {log.py:232} WARNING - [[34m2024-06-16T07:18:04.546+0000[0m] {[34mlocal.py:[0m350} INFO[0m - [35m(astronomer-cosmos)[0m - Outlets: [][0m
+[2024-06-16T07:18:04.546+0000] {local.py:350} INFO - Outlets: []
+[2024-06-16T07:18:04.549+0000] {dag.py:3047} INFO - Sync 1 DAGs
+[2024-06-16T07:18:04.601+0000] {dag.py:3834} INFO - Setting next_dagrun for dbt_deel_task to None, run_after=None
+[2024-06-16T07:18:04.694+0000] {taskinstance.py:2731} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 444, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 414, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/cosmos/operators/local.py", line 579, in execute
+    result = self.build_and_run_cmd(context=context, cmd_flags=self.add_cmd_flags())
+  File "/home/airflow/.local/lib/python3.10/site-packages/cosmos/operators/local.py", line 489, in build_and_run_cmd
+    result = self.run_command(cmd=dbt_cmd, env=env, context=context)
+  File "/home/airflow/.local/lib/python3.10/site-packages/cosmos/operators/local.py", line 359, in run_command
+    self.handle_exception(result)
+  File "/home/airflow/.local/lib/python3.10/site-packages/cosmos/operators/local.py", line 195, in handle_exception_dbt_runner
+    raise AirflowException(f"dbt invocation completed with errors: {error_message}")
+airflow.exceptions.AirflowException: dbt invocation completed with errors: relationships_fact_book_details_published_date_key__date_key__ref_dim_dates_: Got 855 results, configured to fail if != 0
+[2024-06-16T07:18:04.699+0000] {taskinstance.py:1149} INFO - Marking task as UP_FOR_RETRY. dag_id=dbt_deel_task, task_id=dim_dates.test, execution_date=20240616T070040, start_date=20240616T071743, end_date=20240616T071804
+[2024-06-16T07:18:04.711+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 63 for task dim_dates.test (dbt invocation completed with errors: relationships_fact_book_details_published_date_key__date_key__ref_dim_dates_: Got 855 results, configured to fail if != 0; 3892)
+[2024-06-16T07:18:04.768+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-06-16T07:18:05.021+0000] {taskinstance.py:3312} INFO - 0 downstream tasks scheduled from follow-on schedule check

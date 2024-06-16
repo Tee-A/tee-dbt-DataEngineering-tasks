@@ -1,0 +1,13 @@
+dbt_deel_task:
+  outputs:
+    dev:
+      dbname: postgres
+      host: host.docker.internal
+      pass: postgres
+      port: 5433
+      schema: public
+      threads: 22
+      type: postgres
+      user: postgres
+  target: dev
+

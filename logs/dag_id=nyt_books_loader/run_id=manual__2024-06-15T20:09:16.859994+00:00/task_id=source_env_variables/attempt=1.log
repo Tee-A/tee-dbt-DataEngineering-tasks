@@ -1,0 +1,16 @@
+[2024-06-15T20:09:22.587+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: nyt_books_loader.source_env_variables manual__2024-06-15T20:09:16.859994+00:00 [queued]>
+[2024-06-15T20:09:22.594+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: nyt_books_loader.source_env_variables manual__2024-06-15T20:09:16.859994+00:00 [queued]>
+[2024-06-15T20:09:22.594+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 1
+[2024-06-15T20:09:22.617+0000] {taskinstance.py:2217} INFO - Executing <Task(BashOperator): source_env_variables> on 2024-06-15 20:09:16.859994+00:00
+[2024-06-15T20:09:22.636+0000] {standard_task_runner.py:60} INFO - Started process 6997 to run task
+[2024-06-15T20:09:22.636+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'nyt_books_loader', 'source_env_variables', 'manual__2024-06-15T20:09:16.859994+00:00', '--job-id', '7', '--raw', '--subdir', 'DAGS_FOLDER/nyt_loader.py', '--cfg-path', '/tmp/tmpwtutnjya']
+[2024-06-15T20:09:22.675+0000] {standard_task_runner.py:88} INFO - Job 7: Subtask source_env_variables
+[2024-06-15T20:09:22.873+0000] {task_command.py:423} INFO - Running <TaskInstance: nyt_books_loader.source_env_variables manual__2024-06-15T20:09:16.859994+00:00 [running]> on host 8f5cdcc3ce05
+[2024-06-15T20:09:23.012+0000] {taskinstance.py:2513} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='nyt_books_loader' AIRFLOW_CTX_TASK_ID='source_env_variables' AIRFLOW_CTX_EXECUTION_DATE='2024-06-15T20:09:16.859994+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-06-15T20:09:16.859994+00:00'
+[2024-06-15T20:09:23.015+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2024-06-15T20:09:23.015+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'source /opt/***/config/.env']
+[2024-06-15T20:09:23.026+0000] {subprocess.py:86} INFO - Output:
+[2024-06-15T20:09:23.031+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2024-06-15T20:09:23.050+0000] {taskinstance.py:1149} INFO - Marking task as SUCCESS. dag_id=nyt_books_loader, task_id=source_env_variables, execution_date=20240615T200916, start_date=20240615T200922, end_date=20240615T200923
+[2024-06-15T20:09:23.121+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2024-06-15T20:09:23.183+0000] {taskinstance.py:3312} INFO - 1 downstream tasks scheduled from follow-on schedule check
