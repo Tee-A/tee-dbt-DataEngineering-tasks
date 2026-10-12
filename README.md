@@ -1,5 +1,6 @@
 # Temilola-Onaneye-de-task
-Temilola Onaneye Deel Data Engr Task
+Temilola Onaneye Data Engr Task
+DBT Based Project
 
 Follow the steps below to run this Project
 1. After Clonning this Repo, change working directory to Repo Folder.
